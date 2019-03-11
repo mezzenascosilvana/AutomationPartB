@@ -1,0 +1,8 @@
+Develop a small application in Java that communicates with Github API and does the following
+
+a-It’s taking input through the command line CLI (1st param = Search string, 2nd param = release tag)
+b-Search Github for repositories that match the given search string “TestNG”
+c-Sort the results by the number of stars in a descending order and print the top result name and stars
+d-For the top result repository read the latest release tag and verify if the 2nd param given by CLI refer to an older or newer release tag (e.g. 6.13.1) and print it in a message
+e-Add tests for your project to provide good code coverage
+
