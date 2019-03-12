@@ -1,5 +1,7 @@
 package GitHubHandling;
 
+import static org.testng.Assert.assertTrue;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -38,6 +40,7 @@ public class GitHubHandlerRequest {
 		parameterArray.add(args1);
 		System.out.println("The second parameter:" + parameterArray.get(1));
 		log.createLog("second parameter:" + parameterArray.get(1));
+		assertTrue(parameterArray.size()>=1); // validate the array has values
 		return parameterArray;
 	}
 
@@ -47,7 +50,6 @@ public class GitHubHandlerRequest {
 	 * @param USER_AGENT
 	 * @return String
 	 */
-	@Test
 	public String getHttpResponse(String requestURL, String USER_AGENT) {
 
 		String result = null;
@@ -57,7 +59,7 @@ public class GitHubHandlerRequest {
 		HttpGet request = new HttpGet(requestURL);
 		request.addHeader("User-Agent", USER_AGENT);
 		HttpResponse response;
-
+        
 		try {
 			System.out.println("Start.....");
 			log.createLog("Start.....");
@@ -101,6 +103,7 @@ public class GitHubHandlerRequest {
 		StringBuilder sb = new StringBuilder();
 
 		String line = null;
+		// this part only add into the array some keys of all the repositories
 		try {
 			while ((line = reader.readLine()) != null) {
 				boolean key1 = line.contains("\"name\":");
@@ -118,6 +121,7 @@ public class GitHubHandlerRequest {
 				e.printStackTrace();
 			}
 		}
+		
 		return sb.toString();
 	}
 

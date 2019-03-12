@@ -6,10 +6,7 @@
       <class name="test.GitHubTest">
         <methods>
           <include name="verifyLastedReleaset"/>
-          <include name="showFirstResultName_Star"/>
           <include name="setup"/>
-          <include name="showLastReleaseTagResult"/>
-          <include name="getResponse"/>
         </methods>
       </class> <!-- test.GitHubTest -->
     </classes>

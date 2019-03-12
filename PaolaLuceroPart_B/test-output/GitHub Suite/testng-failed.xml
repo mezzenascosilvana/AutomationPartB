@@ -4,7 +4,7 @@
   <listeners>
     <listener class-name="test.Listeners"/>
   </listeners>
-  <test name="Automation Positive Tests(failed)">
+  <test thread-count="5" name="Automation Positive Tests(failed)">
     <classes>
       <class name="test.GitHubTest">
         <methods>

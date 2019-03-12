@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
-  <test thread-count="5" name="Default test(failed)">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [GitHub Suite]">
+  <listeners>
+    <listener class-name="test.Listeners"/>
+  </listeners>
+  <test thread-count="5" name="Automation Positive Tests(failed)">
     <classes>
       <class name="test.GitHubTest">
         <methods>
@@ -13,5 +16,5 @@
         </methods>
       </class> <!-- test.GitHubTest -->
     </classes>
-  </test> <!-- Default test(failed) -->
-</suite> <!-- Failed suite [Default suite] -->
+  </test> <!-- Automation Positive Tests(failed) -->
+</suite> <!-- Failed suite [GitHub Suite] -->

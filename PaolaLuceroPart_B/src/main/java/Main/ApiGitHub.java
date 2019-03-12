@@ -16,19 +16,25 @@ public class ApiGitHub {
 
 	public static void main(String[] args) throws IOException {
 		
+		// Setup the parameters
 		GitHubHandlerRequest obj1 =new GitHubHandlerRequest();
 		ArrayList<String> parameters = obj1.setParameters(args[0], args[1] );
+		// Builds the url with the parameter args[0], (TestNG) and sorts by star
 		String newRequestUrl = REQUESTURL + "?q=" + parameters.get(0) + "&sort=stars&order=desc";
 		System.out.println(REQUESTURL);
-		log.createLog("RESPONSE: " + newRequestUrl);
+		log.createLog("RESPONSE: " + newRequestUrl); // log
+		//Executes the URL. The URL, returns a "result" String. This String has all the repositories
 		String result = obj1.getHttpResponse(newRequestUrl, USER_AGENT);
+		//Shows the first repository of the array. it is only shown: the name, star and  new URL, it is necessary to find release tag.
 		GitHubHandlerResponse obj2 = new GitHubHandlerResponse();
 		ArrayList<String> nameAndStarResult = obj2.getKeys(result, "ShowFirstResultName&Star");
-		log.createLog("RESPONSE: " + nameAndStarResult.get(0));
-		log.createLog("RESPONSE: " + nameAndStarResult.get(1));
+		log.createLog("RESPONSE: " + nameAndStarResult.get(0)); //log
+		log.createLog("RESPONSE: " + nameAndStarResult.get(1)); //log
+		// Shows the last release tag of the new URL.
 		String lastReleaseTagResult = obj2.showLatestReleaseTag(result, USER_AGENT);
-		log.createLog("RESPONSE SECOND URL: " + lastReleaseTagResult);
-		System.out.println(lastReleaseTagResult);
+		log.createLog("RESPONSE SECOND URL: " + lastReleaseTagResult); //log
+		System.out.println(lastReleaseTagResult); //log
+		// Compares the latest release with the value args[1]
 		obj2.verifyLastedRelease(lastReleaseTagResult, parameters.get(1));
 		
 }}

@@ -1,5 +1,7 @@
 package GitHubHandling;
 
+import static org.testng.Assert.assertTrue;
+
 import java.util.ArrayList;
 
 import org.testng.annotations.Test;
@@ -77,10 +79,10 @@ public class GitHubHandlerResponse {
 		default:
 
 		}
-
+		assertTrue(result !=null);
 		return subpart;
 
-	}
+	}  
 
 	/***
 	 * Search inside the string for the 'url' and return it
@@ -94,6 +96,7 @@ public class GitHubHandlerResponse {
 		String result = null;
 		String subresult = url.substring(20);
 		result = subresult.substring(0, subresult.length() - 1);
+		assertTrue(result !=null);
 		return result;
 	}
 
@@ -109,6 +112,7 @@ public class GitHubHandlerResponse {
 		String result = null;
 		String subresult = name.substring(13);
 		result = subresult.substring(0, subresult.length() - 1);
+		assertTrue(result !=null);
 		return result;
 	}
 	
@@ -138,7 +142,6 @@ public class GitHubHandlerResponse {
 	 * @param result
 	 * @return String
 	 */
-	@Test
 	private  String createNewUrl(String result) {
 
 		ArrayList<String> url = null;
@@ -154,7 +157,6 @@ public class GitHubHandlerResponse {
 	 * @param parameter      : 2nd param given by CLI
 	 * @return Boolean
 	 */
-	@Test
 	public Boolean verifyLastedRelease(String lastReleaseTag, String parameter) {
 
 		Boolean result = false;
